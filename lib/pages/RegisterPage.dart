@@ -1,3 +1,4 @@
+import 'package:diary/models/DairyUser.dart';
 import 'package:diary/pages/AuthPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -134,9 +135,8 @@ class _RegisterPage extends State<RegisterPage> {
           .createUserWithEmailAndPassword(email: email, password: password);
       User firebaseUser = FirebaseAuth.instance.currentUser!;
       CollectionReference usersCollection = FirebaseFirestore.instance.collection("users");
-      usersCollection.doc(firebaseUser.uid).set({
-        'name': name
-      });
+      DiaryUser diaryUser = DiaryUser.getInstance(name: name);
+      usersCollection.doc(firebaseUser.uid).set(diaryUser.toJson());
     } on FirebaseAuthException catch (e) {
       if (e.code == "weak-password") {
         setState(() {

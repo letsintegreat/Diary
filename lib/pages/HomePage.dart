@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diary/models/DairyUser.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -43,8 +44,8 @@ class _HomePage extends State<HomePage> {
               if (snapshot.connectionState == ConnectionState.done) {
                 Map<String, dynamic> data =
                     snapshot.data!.data() as Map<String, dynamic>;
-                String name = data['name'];
-                return Text(name);
+                DiaryUser diaryUser = DiaryUser.fromJson(data);
+                return Text(diaryUser.name);
               } else {
                 return Text("Loading");
               }
