@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'AuthPage.dart';
-import 'HomePage.dart';
+import 'pages/AuthPage.dart';
+import 'pages/HomePage.dart';
 import 'firebase_options.dart';
 
 void main() async {

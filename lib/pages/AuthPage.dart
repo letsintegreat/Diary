@@ -1,4 +1,4 @@
-import 'package:diary/RegisterPage.dart';
+import 'package:diary/pages/RegisterPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
