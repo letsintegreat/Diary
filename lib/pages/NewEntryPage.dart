@@ -18,9 +18,30 @@ class _NewEntryPage extends State<NewEntryPage> {
   String _entryError = "";
   String dateInString = "";
 
+  @override
+  void initState() {
+    super.initState();
+    DateTime proposedDate = DateTime.now();
+    List<String> args = "${proposedDate.toLocal()}".split(' ')[0].split("-");
+    String t = "${args[2]}-${args[1]}-${args[0]}";
+    while (widget.diaryUser.entries.any((item) => item.timeStamp == t)) {
+      proposedDate = proposedDate.add(const Duration(days: -1));
+      args = "${proposedDate.toLocal()}".split(' ')[0].split("-");
+      t = "${args[2]}-${args[1]}-${args[0]}";
+    }
+    setState(() {
+      selectedDate = proposedDate;
+    });
+  }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
+        selectableDayPredicate: (DateTime val) {
+          List<String> args = "${val.toLocal()}".split(' ')[0].split("-");
+          String t = "${args[2]}-${args[1]}-${args[0]}";
+          return !widget.diaryUser.entries.any((item) => item.timeStamp == t);
+        },
         initialDate: selectedDate,
         firstDate: DateTime(2021, 8),
         lastDate: DateTime(2025));
