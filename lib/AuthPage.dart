@@ -7,9 +7,31 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPage extends State<AuthPage> {
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final String _emailError = "";
+  final String _passwordError = "";
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Dairy",
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Login'
+          ),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
