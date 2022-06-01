@@ -22,10 +22,7 @@ class _RegisterPage extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Dairy",
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Login'),
         ),
@@ -98,8 +95,7 @@ class _RegisterPage extends State<RegisterPage> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   void login(BuildContext context) {
