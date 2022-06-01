@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class DiaryEntry {
   DateTime date = DateTime.now();
   String timeStamp = "";
@@ -23,7 +25,10 @@ class DiaryEntry {
   static DiaryEntry fromJson(Map<String, dynamic> m) {
     DiaryEntry diaryEntry = DiaryEntry();
     diaryEntry.entry = m['entry'];
-    diaryEntry.timeStamp = m['timeStamp'];
+    List<String> args = m['timeStamp'].split("-");
+    String helperDate = "${args[2]}-${args[1]}-${args[0]} 00:00:00.000";
+    DateTime d = DateTime.parse(helperDate);
+    diaryEntry.changeDate(d);
     return diaryEntry;
   }
 
@@ -32,5 +37,25 @@ class DiaryEntry {
       'entry': entry,
       'timeStamp': timeStamp,
     };
+  }
+
+  String getTitleFromTimeStamp() {
+    List<String> args = timeStamp.split("-");
+    List<String> months = [
+      "Jan",
+      "Feb",
+      "March",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    int mon = int.parse(args[1]);
+    return "${args[0]} ${months[mon - 1]} ${args[2]}";
   }
 }

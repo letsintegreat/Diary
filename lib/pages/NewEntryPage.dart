@@ -60,6 +60,8 @@ class _NewEntryPage extends State<NewEntryPage> {
           ),
           TextField(
             controller: _entryController,
+            keyboardType: TextInputType.multiline,
+            maxLines: null,
             onChanged: (v) {
               setState(() {
                 _entryError = "";
@@ -70,28 +72,29 @@ class _NewEntryPage extends State<NewEntryPage> {
               errorText: _entryError == "" ? null : _entryError,
             ),
           ),
-          Builder(
-            builder: (context) {
-              return ElevatedButton(onPressed: () => submit(context), child: Text("SUBMIT"));
-            }
-          ),
+          Builder(builder: (context) {
+            return ElevatedButton(
+                onPressed: () => submit(context), child: Text("SUBMIT"));
+          }),
         ],
       ),
     );
   }
 
   void submit(BuildContext context) {
-    String entry = _entryController.text;
+    String entry = _entryController.text.trim();
     if (entry.isEmpty) {
       setState(() {
         _entryError = "Entry required";
       });
       return;
     }
-    DiaryEntry diaryEntry = DiaryEntry.getInstance(date: selectedDate, entry: entry);
+    DiaryEntry diaryEntry =
+        DiaryEntry.getInstance(date: selectedDate, entry: entry);
     widget.diaryUser.entries.add(diaryEntry);
     User firebaseUser = FirebaseAuth.instance.currentUser!;
-    CollectionReference usersCollection = FirebaseFirestore.instance.collection("users");
+    CollectionReference usersCollection =
+        FirebaseFirestore.instance.collection("users");
     usersCollection.doc(firebaseUser.uid).set(widget.diaryUser.toJson());
     Navigator.of(context).pop();
   }
