@@ -1,12 +1,11 @@
-# diary
+# Diary
 
-A Personal Diary App
+A Personal Diary App, it was built under Coding Week'22 App Dev Task.
 
-# Features implemented
+# Key Features
 
- - Register with email and password
- - Login with email and password
- - Add an entry for any date
- - Edit or Delete entry from any date
- - Disable dates whose entries have been submitted, and Disable future dates
- - Secured the diary with Screen Lock
+ - Personal Diary is secured with Mobile's Screen Lock. Fingerprint and Facial Recognition also functional.
+ - Register and Login with email and password across devices.
+ - Edit or Delete any entry.
+ - Future dates, and dates with entry already submitted have been disabled.
+ - Minimal UI and satisfying animations.
