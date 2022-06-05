@@ -52,7 +52,9 @@ class _NewEntryPage extends State<NewEntryPage> {
         selectableDayPredicate: (DateTime val) {
           List<String> args = "${val.toLocal()}".split(' ')[0].split("-");
           String t = "${args[2]}-${args[1]}-${args[0]}";
-          return !widget.diaryUser.entries.any((item) => item.timeStamp == t);
+          bool alreadyEntered = widget.diaryUser.entries.any((item) => item.timeStamp == t);
+          bool future = DateTime.now().compareTo(val) < 0;
+          return !(alreadyEntered || future);
         },
         initialDate: selectedDate,
         firstDate: DateTime(2021, 8),
