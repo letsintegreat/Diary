@@ -108,14 +108,42 @@ class _HomePage extends State<HomePage> {
                 }
                 m[monthAndYear]!.add(entry);
               }
-              print(m);
+              if (diaryUser.entries.isEmpty) {
+                return Center(
+                  child: Column(
+                    children: [
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0, 32, 8, 32),
+                        child: Image.asset(
+                          "assets/waiting.png",
+                          height: 180,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(32, 32, 32, 32),
+                        child: Center(
+                          child: Text(
+                            "No entries as of now. Click on + to get started!",
+                            style: GoogleFonts.sourceSansPro(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                    ],
+                  ),
+                );
+              }
               return SizedBox.expand(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
                   child: Container(
                     child: ListView(
                       children: m.keys.toList().map((String k) {
-                        print(k);
                         return Padding(
                           padding: const EdgeInsets.fromLTRB(0, 0, 0, 25),
                           child: Column(
@@ -170,8 +198,7 @@ class _HomePage extends State<HomePage> {
                                                       diaryEntry: diaryEntry),
                                                   type:
                                                       PageTransitionType.scale,
-                                                  alignment:
-                                                      Alignment.center,
+                                                  alignment: Alignment.center,
                                                   duration:
                                                       Duration(seconds: 1)));
                                         },

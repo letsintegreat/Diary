@@ -96,7 +96,7 @@ class _ScreenLockPage extends State<ScreenLockPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(8.0, 50, 8, 32),
                 child: Image.asset(
-                  "assets/waiting.png",
+                  "assets/secret.png",
                   height: 180,
                 ),
               ),
