@@ -22,7 +22,10 @@ class _AuthPage extends State<AuthPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Dairy",
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF988DDC)),
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF988DDC),
+        primaryColor: Color(0xFF4b39ba),
+      ),
       home: Scaffold(
         body: Builder(builder: (context) {
           return Center(
@@ -247,7 +250,8 @@ class _AuthPage extends State<AuthPage> {
     Navigator.push(
         context,
         PageTransition(
-            child: RegisterPage(), type: PageTransitionType.rightToLeftWithFade));
+            child: RegisterPage(),
+            type: PageTransitionType.rightToLeftWithFade));
   }
 
   void submit() async {

@@ -25,10 +25,15 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF988DDC),
+        primaryColor: Color(0xFF4b39ba),
+      ),
       title: "Dairy",
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Welcome"),
+          backgroundColor: Color(0xFF4b39ba),
           actions: <Widget>[
             Builder(builder: (context) {
               return PopupMenuButton<String>(onSelected: (s) {
