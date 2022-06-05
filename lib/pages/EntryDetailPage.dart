@@ -17,13 +17,19 @@ class EntryDetailPage extends StatelessWidget {
 
   showAlertDialog(BuildContext context) {
     Widget cancelButton = TextButton(
-      child: Text("Cancel"),
+      child: Text(
+        "Cancel",
+        style: GoogleFonts.sourceSansPro(
+            color: Colors.white, fontWeight: FontWeight.bold),
+      ),
       onPressed: () {
         Navigator.of(context).pop();
       },
     );
     Widget deleteButton = TextButton(
-      child: Text("Delete"),
+      child: Text("Delete",
+          style: GoogleFonts.sourceSansPro(
+              color: Colors.red, fontWeight: FontWeight.bold)),
       onPressed: () {
         diaryUser.entries.removeWhere(
             (element) => element.timeStamp == diaryEntry.timeStamp);
@@ -38,9 +44,16 @@ class EntryDetailPage extends StatelessWidget {
     );
 
     AlertDialog alert = AlertDialog(
-      title: Text("Caution"),
+      backgroundColor: Color(0xFF988DDC),
+      title: Text(
+        "Caution",
+        style: GoogleFonts.sourceSansPro(
+            fontWeight: FontWeight.bold, color: Colors.white),
+      ),
       content: Text(
-          "Are you sure you want to delete ${diaryEntry.getTitleFromTimeStamp()} entry?"),
+        "Are you sure you want to delete Entry: ${diaryEntry.getTitleFromTimeStamp()}?",
+        style: GoogleFonts.sourceSansPro(color: Colors.white),
+      ),
       actions: [
         cancelButton,
         deleteButton,
