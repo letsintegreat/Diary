@@ -13,6 +13,5 @@ A Personal Diary App
 
 # TODOS
 
- - Add an animation from HomePage to Details page
  - Fix the dairy typo in NewEntry page and Edit Entry page
  - Same Container size for Details and Edit page
