@@ -8,4 +8,4 @@ A Personal Diary App
  - Login with email and password
  - Add an entry for any date
  - Edit or Delete entry from any date
- - Disable dates whose entries have been submitted
+ - Disable dates whose entries have been submitted, and Disable future dates
