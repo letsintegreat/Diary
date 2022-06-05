@@ -74,22 +74,14 @@ class EntryDetailPage extends StatelessWidget {
         ),
         backgroundColor: Color(0xFF4b39ba),
         actions: <Widget>[
-          Builder(
-            builder: (context) {
-              return PopupMenuButton<String>(onSelected: (s) {
-                if (s == "Delete") {
-                  showAlertDialog(context);
-                }
-              }, itemBuilder: (BuildContext context) {
-                return {"Delete"}.map((String choice) {
-                  return PopupMenuItem(
-                    child: Text(choice),
-                    value: choice,
-                  );
-                }).toList();
-              });
-            },
-          )
+          Builder(builder: (context) {
+            return IconButton(
+                onPressed: () => showAlertDialog(context),
+                icon: FaIcon(
+                  FontAwesomeIcons.trash,
+                  size: 17,
+                ));
+          })
         ],
       ),
       body: Padding(
@@ -139,7 +131,7 @@ class EntryDetailPage extends StatelessWidget {
             backgroundColor: Color(0xFF4b39ba),
             child: FaIcon(
               FontAwesomeIcons.pencil,
-              size: 20,
+              size: 17,
             ),
             onPressed: () {
               Navigator.push(
