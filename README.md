@@ -13,5 +13,4 @@ A Personal Diary App
 
 # TODOS
 
- - Fix the dairy typo in NewEntry page and Edit Entry page
  - Same Container size for Details and Edit page

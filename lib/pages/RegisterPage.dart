@@ -1,4 +1,4 @@
-import 'package:diary/models/DairyUser.dart';
+import 'package:diary/models/DiaryUser.dart';
 import 'package:diary/pages/AuthPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

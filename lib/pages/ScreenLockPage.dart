@@ -71,7 +71,7 @@ class _ScreenLockPage extends State<ScreenLockPage> {
         scaffoldBackgroundColor: const Color(0xFF988DDC),
         primaryColor: Color(0xFF4b39ba),
       ),
-      title: "Dairy",
+      title: "Diary",
       home: Scaffold(
         appBar: AppBar(
           title: Center(child: Builder(builder: (context) {

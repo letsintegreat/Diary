@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diary/models/DairyUser.dart';
+import 'package:diary/models/DiaryUser.dart';
 import 'package:diary/models/DiaryEntry.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -169,7 +169,7 @@ class _NewEntryPage extends State<NewEntryPage> {
                           enabledBorder: InputBorder.none,
                           errorBorder: InputBorder.none,
                           disabledBorder: InputBorder.none,
-                          labelText: "Dairy entry...",
+                          labelText: "Diary entry...",
                           errorText: _entryError == "" ? null : _entryError,
                           labelStyle: GoogleFonts.sourceSansPro(
                               color: Colors.white,

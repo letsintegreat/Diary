@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../models/DairyUser.dart';
+import '../models/DiaryUser.dart';
 
 class EditDetailPage extends StatefulWidget {
   DiaryUser diaryUser;
@@ -79,7 +79,7 @@ class _EditDetailPage extends State<EditDetailPage> {
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        labelText: "Dairy entry...",
+                        labelText: "Diary entry...",
                         errorText: _entryError == "" ? null : _entryError,
                         labelStyle: GoogleFonts.sourceSansPro(
                             color: Colors.white,

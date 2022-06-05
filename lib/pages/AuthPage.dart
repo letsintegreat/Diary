@@ -21,7 +21,7 @@ class _AuthPage extends State<AuthPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Dairy",
+      title: "Diary",
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFF988DDC),
         primaryColor: Color(0xFF4b39ba),
