@@ -10,7 +10,3 @@ A Personal Diary App
  - Edit or Delete entry from any date
  - Disable dates whose entries have been submitted, and Disable future dates
  - Secured the diary with Screen Lock
-
-# TODOS
-
- - Same Container size for Details and Edit page

@@ -45,53 +45,47 @@ class _EditDetailPage extends State<EditDetailPage> {
         ),
         backgroundColor: Color(0xFF4b39ba),
       ),
-      body: Column(
-        children: [
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(26.0, 26.0, 26.0, 100),
-            child: Material(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              color: Color(0xFF4b39ba),
-              child: Container(
-                height: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
-                  child: TextField(
-                    controller: _entryController,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    onChanged: (v) {
-                      setState(() {
-                        _entryError = "";
-                      });
-                    },
-                    style: GoogleFonts.sourceSansPro(
-                        color: Colors.white, fontSize: 25),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        labelText: "Diary entry...",
-                        errorText: _entryError == "" ? null : _entryError,
-                        labelStyle: GoogleFonts.sourceSansPro(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15)),
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 120),
+        child: Material(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          color: Color(0xFF4b39ba),
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Container(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
+                child: TextField(
+                  controller: _entryController,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  onChanged: (v) {
+                    setState(() {
+                      _entryError = "";
+                    });
+                  },
+                  style: GoogleFonts.sourceSansPro(
+                      color: Colors.white, fontSize: 25),
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      labelText: "Diary entry...",
+                      errorText: _entryError == "" ? null : _entryError,
+                      labelStyle: GoogleFonts.sourceSansPro(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
                 ),
               ),
             ),
           ),
-          Spacer(),
-        ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Builder(builder: (context) {
