@@ -5,6 +5,9 @@ import 'package:diary/pages/EditDetailPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class EntryDetailPage extends StatelessWidget {
   DiaryUser diaryUser;
@@ -57,20 +60,28 @@ class EntryDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(diaryEntry.getTitleFromTimeStamp()),
+        title: Center(
+            child: Text(
+          "Entry: ${diaryEntry.getTitleFromTimeStamp()}",
+          style: GoogleFonts.sourceSansPro(
+              fontWeight: FontWeight.bold, fontSize: 22),
+        )),
+        toolbarHeight: 70,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
+        backgroundColor: Color(0xFF4b39ba),
         actions: <Widget>[
           Builder(
             builder: (context) {
               return PopupMenuButton<String>(onSelected: (s) {
-                if (s == "Edit") {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => EditDetailPage(
-                          diaryUser: diaryUser, diaryEntry: diaryEntry)));
-                } else if (s == "Delete") {
+                if (s == "Delete") {
                   showAlertDialog(context);
                 }
               }, itemBuilder: (BuildContext context) {
-                return {"Edit", "Delete"}.map((String choice) {
+                return {"Delete"}.map((String choice) {
                   return PopupMenuItem(
                     child: Text(choice),
                     value: choice,
@@ -81,9 +92,66 @@ class EntryDetailPage extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        child: Text(diaryEntry.entry),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 120),
+        child: Material(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          color: Color(0xFF4b39ba),
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Container(
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
+                      child: Text(
+                        "Diary Entry...",
+                        style: GoogleFonts.sourceSansPro(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          Text(
+                            diaryEntry.entry,
+                            style: GoogleFonts.sourceSansPro(
+                                color: Colors.white, fontSize: 25),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: Builder(builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: FloatingActionButton(
+            backgroundColor: Color(0xFF4b39ba),
+            child: FaIcon(
+              FontAwesomeIcons.pencil,
+              size: 20,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      child: EditDetailPage(
+                          diaryUser: diaryUser, diaryEntry: diaryEntry),
+                      type: PageTransitionType.bottomToTop));
+            },
+          ),
+        );
+      }),
     );
   }
 }
