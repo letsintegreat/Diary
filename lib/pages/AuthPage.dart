@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -243,8 +244,10 @@ class _AuthPage extends State<AuthPage> {
   }
 
   void register(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => RegisterPage()));
+    Navigator.push(
+        context,
+        PageTransition(
+            child: RegisterPage(), type: PageTransitionType.rightToLeftWithFade));
   }
 
   void submit() async {
