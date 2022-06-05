@@ -1,3 +1,4 @@
+import 'package:diary/pages/ScreenLockPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ void main() async {
     if (auth.currentUser == null || user == null) {
       runApp(const AuthPage());
     } else {
-      runApp(const HomePage());
+      runApp(ScreenLockPage());
     }
   });
 }

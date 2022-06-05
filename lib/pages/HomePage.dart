@@ -25,14 +25,7 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF988DDC),
-        primaryColor: Color(0xFF4b39ba),
-      ),
-      title: "Dairy",
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Center(
               child: Text(
@@ -257,8 +250,7 @@ class _HomePage extends State<HomePage> {
             }
           },
         ),
-      ),
-    );
+      );
   }
 
   String getTitleFromTimeStamp(String timeStamp) {

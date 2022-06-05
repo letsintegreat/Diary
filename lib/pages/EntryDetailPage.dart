@@ -39,7 +39,8 @@ class EntryDetailPage extends StatelessWidget {
         usersCollection.doc(firebaseUser.uid).set(diaryUser.toJson());
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text("Deleted ${diaryEntry.getTitleFromTimeStamp()}")));
-        Navigator.popUntil(context, ModalRoute.withName("/"));
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
       },
     );
 

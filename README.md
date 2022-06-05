@@ -9,3 +9,11 @@ A Personal Diary App
  - Add an entry for any date
  - Edit or Delete entry from any date
  - Disable dates whose entries have been submitted, and Disable future dates
+ - Secured the diary with Screen Lock
+
+# TODOS
+
+ - Add a loading animation in HomePage
+ - Add an animation from HomePage to Details page
+ - Fix the dairy typo in NewEntry page and Edit Entry page
+ - Same Container size for Details and Edit page

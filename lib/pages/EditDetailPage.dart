@@ -124,6 +124,7 @@ class _EditDetailPage extends State<EditDetailPage> {
     CollectionReference usersCollection =
         FirebaseFirestore.instance.collection("users");
     usersCollection.doc(firebaseUser.uid).set(widget.diaryUser.toJson());
-    Navigator.popUntil(context, ModalRoute.withName("/"));
+    Navigator.of(context).pop();
+    Navigator.of(context).pop();
   }
 }
