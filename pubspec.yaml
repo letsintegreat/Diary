@@ -40,8 +40,8 @@ dependencies:
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.1.0
   page_transition: ^2.0.5
-  flutter_screen_lock: ^6.0.0
   local_auth: ^2.1.0
+  loading_animation_widget: ^1.2.0+1
 
 dev_dependencies:
   flutter_test:

@@ -28,11 +28,9 @@ class _ScreenLockPage extends State<ScreenLockPage> {
         ),
       );
       if (didAuthenticate) {
-        Navigator.pushReplacement(
-          context,
-          PageTransition(
-            child: HomePage(),
-            type: PageTransitionType.bottomToTop,
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => HomePage(),
           ),
         );
       } else {
@@ -50,11 +48,9 @@ class _ScreenLockPage extends State<ScreenLockPage> {
           duration: Duration(seconds: 5),
         ),
       );
-      Navigator.pushReplacement(
-        context,
-        PageTransition(
-          child: HomePage(),
-          type: PageTransitionType.bottomToTop,
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
         ),
       );
     }
