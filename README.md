@@ -6,6 +6,11 @@
 
 A Personal Diary App, it was built under Coding Week'22 App Dev Task.
 
+# Tech Stack
+
+ - Flutter (Dart)
+ - Firebase
+
 # Key Features
 
  - Personal Diary is secured with Mobile's Screen Lock. Fingerprint and Facial Recognition also functional.
